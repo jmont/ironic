@@ -1,0 +1,14 @@
+%p#notice= notice
+
+.confession= @confession.txt
+
+#confComments
+  - for c in @confession.comments
+    .comment= c.txt
+  %textarea
+  #commentBtn.btn.btn-success Submit
+
+
+
+= link_to 'Edit', edit_confession_path(@confession) |
+= link_to 'Back', confessions_path
