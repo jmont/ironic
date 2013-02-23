@@ -14,6 +14,7 @@ class ConfessionsController < ApplicationController
   # GET /confessions/1.json
   def show
     @confession = Confession.find(params[:id])
+    @comments = @confession.comments
 
     respond_to do |format|
       format.html # show.html.erb
