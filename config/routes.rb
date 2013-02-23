@@ -1,4 +1,6 @@
 Ironic::Application.routes.draw do
+  root :to => 'confessions#index'
+
   resources :confessions do
     resources :comments
   end
