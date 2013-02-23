@@ -1,11 +1,11 @@
 %p#notice= notice
 
-.confession= @confession.txt
+.confession{:data => {:id => "#{@confession.id.to_s}"}}= @confession.txt
 
 #confComments
   - for c in @confession.comments
     .comment= c.txt
-  %textarea
+  %textarea#newCommentTxtArea
   #commentBtn.btn.btn-success Submit
 
 
