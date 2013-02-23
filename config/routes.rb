@@ -1,4 +1,7 @@
 Ironic::Application.routes.draw do
+  resources :confessions
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
