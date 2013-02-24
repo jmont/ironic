@@ -1,0 +1,17 @@
+
+<div class="row">
+
+	<% @confessions.each do |confession| %>
+
+    <div class="span6 conf">
+	<div class="span4">  <%= confession.txt %> </div>
+		    <%= link_to 'Show', confession %>
+		    <%= link_to 'Edit', edit_confession_path(confession) %>
+		    <%= link_to 'Destroy', confession, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+	<% end %>
+</div>
+
+
+<br />
+
