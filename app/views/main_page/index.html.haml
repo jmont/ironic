@@ -1,6 +1,9 @@
-.span4.conf
-  - for c in @confessions
-    .wrapper{:data => {:id => "#{c.id.to_s}"}} Tufts Confession:
-    .confession{:data => {:id => "#{c.id.to_s}"}}= c.txt
+.row
+  .span3.conf.offset1
+    - for c in @confessions
+      .wrapper{:data => {:id => "#{c.id.to_s}"}}
+        Tufts Confession #
+        =c.id.to_s 
+      .confession{:data => {:id => "#{c.id.to_s}"}}= c.txt
 
-#mainDetailView.span8
+  #mainDetailView.span8
