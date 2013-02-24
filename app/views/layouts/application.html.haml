@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+%html
+	%head
+		%title
+			= stylesheet_link_tag    "application", :media => "all"
+			= javascript_include_tag "application"
+			= csrf_meta_tags
+
+	%body
+
+		%h1{:id => "title"}Tufts Confessions
+		
+		
+		.container
+			.row
+				.span3
+				.span3.right= link_to 'New Confession', new_confession_path
+				.span3 
+					Text +1 617-229-6779
+			.span3	
+		
+			= yield
+
