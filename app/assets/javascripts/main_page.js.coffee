@@ -23,13 +23,23 @@ $ ->
                     </div>
                     <div id="confComments"></div>'
 
+  newConfessionTemplate = '<div id="newConfessionForm">
+                       <br>Post Your Tufts Confession... </br></br>
+                      <textarea id="newConfessionTxtArea" /></div>
+                      <div id="confessBtn" class="btn btn-success">Post</div>
+                      
+                    '
+
   succ = (confession) ->
-    $('#mainDetailView').empty()
+    $('#mainDetailView').empty()  
     $('#mainDetailView').append(Mustache.render(detailTemplate, confession))
     $('#confessionTxtDetail').html(confession.txt)
     for c in confession.comments
-      $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '</div>')
+      $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div>' + '</div>')
 
+  render = ->
+    $('#mainDetailView').empty()
+    $('#mainDetailView').append(Mustache.render(newConfessionTemplate, confession))     
   getConfessionDetails = ->
     $.ajax({
         url: ('/confessions/' + $(this).data('id')),
@@ -42,3 +52,5 @@ $ ->
     renderTags('.confession')
     
   init()
+  succ()
+  getConfessionDetails()
