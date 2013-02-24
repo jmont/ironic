@@ -9,12 +9,12 @@ $ ->
       link = '<a href="confessions/'  +  tag.match(/\d+/g)[0] + '">' + tag + '</a>'
       txt = txt.replace(tag, link)
     txt
-  
-  renderTags = (className) -> 
+
+  renderTags = (className) ->
     $.each($(className), (i, v) ->
       txt =  $(this).html()
       $(this).html(replaceTextForTag(txt)))
-      
+
 
   detailTemplate = '<div id="confessionTxtDetail">{{txt}}</div>
                     <div id="confCommentForm">
@@ -27,30 +27,47 @@ $ ->
                        <br>Post Your Tufts Confession... </br></br>
                       <textarea id="newConfessionTxtArea" /></div>
                       <div id="confessBtn" class="btn btn-success">Post</div>
-                      
                     '
 
-  succ = (confession) ->
-    $('#mainDetailView').empty()  
+  postedComment = (c) ->
+    $('#newCommentTxtArea').val('')
+    $('#confComments').prepend('<div class="comment">' + c.txt + '<div class="created_at">'+ c.created_at + '</div></div>')
+
+  didntPostComment = (e) -> alert 'Couln\'t sumbit confession!'
+
+  submitComment = ->
+    obj = { "comment": {"txt": $('#newCommentTxtArea').val()}}
+    $.ajax({
+        type: "POST",
+        data: JSON.stringify(obj, null, 2),
+        url: ('/confessions/' + $('.confession').data('id') + '/comments'),
+        contentType: "application/json"
+        dataType: "json",
+        success: postedComment,
+        error: didntPostComment })
+
+  gotConfession = (confession) ->
+    $('#mainDetailView').empty()
     $('#mainDetailView').append(Mustache.render(detailTemplate, confession))
+    $('#commentBtn').click submitComment
     $('#confessionTxtDetail').html(confession.txt)
     for c in confession.comments
-      $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div>' + '</div>')
+      $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
 
   render = ->
     $('#mainDetailView').empty()
-    $('#mainDetailView').append(Mustache.render(newConfessionTemplate, confession))     
+    $('#mainDetailView').append(Mustache.render(newConfessionTemplate, confession))
+
   getConfessionDetails = ->
     $.ajax({
         url: ('/confessions/' + $(this).data('id')),
         contentType: "application/json"
         dataType: "json",
-        success: succ})
+        success: gotConfession})
 
   init = ->
     $('.confession').click getConfessionDetails
     renderTags('.confession')
-    
+
   init()
-  succ()
   getConfessionDetails()
