@@ -1,10 +1,5 @@
-%span.span3
+.span3
   - for c in @confessions
     .confession{:data => {:id => "#{c.id.to_s}"}}= c.txt
 
-%span#mainDetailView.span9
-  #confessionTxtDetail
-  #confCommentForm
-    %textarea#newCommentTxtArea
-    #commentBtn.btn.btn-success Submit
-  #confComments
+#mainDetailView.span9

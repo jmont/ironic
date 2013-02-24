@@ -3,12 +3,16 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  clearDetailView = ->
-    $('#confessionTxtDetail').empty()
-    $('#confessionCommentsDetail').empty()
+  detailTemplate = '<div id="confessionTxtDetail">{{txt}}</div>
+                    <div id="confCommentForm">
+                      <textarea id="newCommentTxtArea" />
+                      <div id="commentBtn" class="btn btn-success">Comment</div>
+                    </div>
+                    <div id="confComments"></div>'
 
   succ = (confession) ->
-    clearDetailView()
+    $('#mainDetailView').empty()
+    $('#mainDetailView').append(Mustache.render(detailTemplate, confession))
     $('#confessionTxtDetail').html(confession.txt)
     for c in confession.comments
       $('#confComments').prepend('<div class="comment">' + c.txt + '</div>')
