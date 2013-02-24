@@ -19,6 +19,8 @@ gem "twitter-bootstrap-rails"
 gem 'factory_girl'
 gem 'haml-rails'
 
+gem 'high_voltage'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

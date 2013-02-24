@@ -8,8 +8,12 @@
     %h1#title= link_to 'Tufts Confessions', root_path
     .container
       .row.row-margin
-        .span3
-        .span3.right= link_to 'New Confession', new_confession_path
-        .span3 Text +1 617-229-6779
-        .span3
+        .span2
+        .span8
+          .span1
+          .span2= link_to 'About', page_path("about")
+          .span2= link_to 'New Confession', new_confession_path
+          .span2 Text +1 617-229-6779
+          .span1
+        .span2
       = yield
