@@ -7,4 +7,6 @@
   #commentBtn.btn.btn-success Submit
 #confComments
   - for c in @confession.comments
-    .comment= c.txt
+    .comment
+      = c.txt
+      .created_at= c.created_at

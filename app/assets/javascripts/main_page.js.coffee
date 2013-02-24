@@ -3,6 +3,19 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+  replaceTextForTag = (txt) ->
+    if txt && txt.match(/#\d+/g) != null
+      tag = txt.match(/#\d+/g)[0]
+      link = '<a href="confessions/'  +  tag.match(/\d+/g)[0] + '">' + tag + '</a>'
+      txt = txt.replace(tag, link)
+    txt
+  
+  renderTags = (className) -> 
+    $.each($(className), (i, v) ->
+      txt =  $(this).html()
+      $(this).html(replaceTextForTag(txt)))
+      
+
   detailTemplate = '<div id="confessionTxtDetail">{{txt}}</div>
                     <div id="confCommentForm">
                       <textarea id="newCommentTxtArea" />
@@ -15,20 +28,17 @@ $ ->
     $('#mainDetailView').append(Mustache.render(detailTemplate, confession))
     $('#confessionTxtDetail').html(confession.txt)
     for c in confession.comments
-      $('#confComments').prepend('<div class="comment">' + c.txt + '</div>')
-
-  err = (e) ->
-    alert e
+      $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '</div>')
 
   getConfessionDetails = ->
     $.ajax({
         url: ('/confessions/' + $(this).data('id')),
         contentType: "application/json"
         dataType: "json",
-        success: succ,
-        error: err })
+        success: succ})
 
   init = ->
     $('.confession').click getConfessionDetails
-
+    renderTags('.confession')
+    
   init()

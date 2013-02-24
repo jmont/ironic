@@ -2,12 +2,20 @@
 
 <table>
   <tr>
-    <th>Txt</th>
+    <th>Comments and stuff</th>
   </tr>
 
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= comment.txt %></td>
+    <td> 
+    <div class="comment"> <%= comment.txt %> </br>
+      <div class= "created_at"> comment.created_at </div>
+    
+    
+    </div> 
+    
+    
+    </td> 
   </tr>
 <% end %>
 </table>

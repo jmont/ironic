@@ -5,10 +5,14 @@
 	
 
     <div class="span6 conf">
-	<div class="span4">  <%= confession.txt %> </div>
-		    <%= link_to 'Show', confession %>
-		    <%= link_to 'Edit', edit_confession_path(confession) %>
+    
+	<div class="span4">  <%= confession.txt %> </div> </br></br>
+	<div class="confess_links">
+            <%= link_to 'Show', confession %>   |
+		    <%= link_to 'Edit', edit_confession_path(confession) %>   |
 		    <%= link_to 'Destroy', confession, method: :delete, data: { confirm: 'Are you sure?' } %>
+		    <div class= "created_at"> <%= confession.created_at %> </div>
+		    </div>
     </div>
 
 	<% end %>
