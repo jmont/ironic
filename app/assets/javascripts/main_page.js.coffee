@@ -31,7 +31,7 @@ $ ->
 
   postedComment = (c) ->
     $('#newCommentTxtArea').val('')
-    $('#confComments').prepend('<div class="comment">' + c.txt + '<div class="created_at">'+ c.created_at + '</div></div>')
+    $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
 
   didntPostComment = (e) -> alert 'Couln\'t sumbit confession!'
 
