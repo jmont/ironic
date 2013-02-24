@@ -1,18 +1,6 @@
-<h1 id="title">Tufts Confessions</h1>
 
+<div class="row">
 
-<div class="container">
-	<div class="row">
-	
-	<div class="span4"></div>
-	<div class="span2"><%= link_to 'New Confession', new_confession_path %></div>
-	<div class="span2">Text </div>
-	<div class="span4"></div>	
-	</div>
-
-<br />
-
-	<div class="row">
 	<% @confessions.each do |confession| %>
 	
 
@@ -24,8 +12,6 @@
     </div>
 
 	<% end %>
-		</div>
-
 </div>
 
 
