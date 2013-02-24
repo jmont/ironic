@@ -1,14 +1,14 @@
 class ConfessionsController < ApplicationController
   # GET /confessions
   # GET /confessions.json
-  def index
-    @confessions = Confession.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @confessions }
-    end
-  end
+  #def index
+  #  @confessions = Confession.all
+  #
+  #  respond_to do |format|
+  #    format.html # index.html.erb
+  #    format.json { render json: @confessions }
+  #  end
+  #end
 
   # GET /confessions/1
   # GET /confessions/1.json

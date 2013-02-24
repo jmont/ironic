@@ -1,13 +1,16 @@
-%p#notice= notice
-
-.confession{:data => {:id => "#{@confession.id.to_s}"}}= @confession.txt
-
-#confCommentForm
-  %textarea#newCommentTxtArea
-  #commentBtn.btn.btn-success Submit
-  
-#confComments
-  - for c in @confession.comments
-    .comment
-      = c.txt
-      .created_at= c.created_at
+.span2
+.span8
+    %p#notice= notice
+    
+    .confession{:data => {:id => "#{@confession.id.to_s}"}}= @confession.txt
+    
+    #confCommentForm
+        %textarea#newCommentTxtArea
+        #commentBtn.btn.btn-success Submit
+      
+    #confComments
+        - for c in @confession.comments
+            .comment
+                = c.txt
+                .created_at= c.created_at
+.span2

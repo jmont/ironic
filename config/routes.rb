@@ -2,7 +2,7 @@ Ironic::Application.routes.draw do
   root :controller => 'main_page', :action => 'index'
 
   resources :confessions do
-    resources :comments
+  resources :comments
   end
   
   post "/sms/" => "sms#create"
