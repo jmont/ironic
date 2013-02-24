@@ -5,7 +5,7 @@ Ironic::Application.routes.draw do
     resources :comments
   end
   
-  match "/sms/" => "Sms#create"
+  post "/sms/" => "Sms#create"
 
 
   # The priority is based upon order of creation:
