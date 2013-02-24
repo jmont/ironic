@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :comment do
-    txt {['Found Glasses, Houston Hall',
-          'Lost: Black hooded Northface jacket',
-          'For Sale: MacBook case - blue $10',
-          'Wanted: Canon AE-1 Program Film Camera 50mm lens',
-          'For Sale: Tube mic Preamp',
-          'Emancipator tickets for sale'].sample}
+    txt {['OMG lol',
+          'WAT',
+          'What is thisssss',
+          'Que cosa',
+          'I WAS WAITING FOR THIS',
+          'ERMAGERD'].sample}
 
   end
 end
