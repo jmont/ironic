@@ -2,7 +2,7 @@
   .span3.conf.offset1
     - for c in @confessions
       .wrapper{:data => {:id => "#{c.id.to_s}"}}
-        Tufts Confession #
+        #
         =c.id.to_s 
       .confession{:data => {:id => "#{c.id.to_s}"}}= c.txt
 
