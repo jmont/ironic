@@ -1,7 +1,8 @@
 class SmsController < ApplicationController
 
   def create 
-  	confessions = Confession.new(params[:Body])
-  	confessions.save
+  	c = Confession.new
+  	c.txt = params[:Body]
+  	c.save
   end
 end
