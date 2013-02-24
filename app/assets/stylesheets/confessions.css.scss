@@ -2,3 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#confessionTxtDetail{
+  background-color: #523E27;
+  width: 600px;
+  padding: 10px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+
+#newConfessionForm{
+  font-size:30px;
+  font-style: italic;
+
+}
+
+#newConfessionTxtArea{
+  
+  width: 500px;
+  height: 150px;  
+}
+
+.wrapper{
+  background-color: #313552;
+  font-size: 20px;
+  color:white;
+}
+
+.confession{
+  padding: 10px;
+  margin: 10px;
+  font-size:15px;
+  background-color: #523E27;
+}
+
+.confess_main{
+  background-color: #523E27;
+  padding: 10px;  
+  
+}
