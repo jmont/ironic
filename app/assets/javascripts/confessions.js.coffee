@@ -3,8 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  succ = ->
-    alert ('succ!')
+  succ = (comment) ->
+    $('#newCommentTxtArea').val('')
+    $('#confComments').prepend('<div class="comment">' + comment.txt + '</div>')
 
   err = (e) ->
     alert e
