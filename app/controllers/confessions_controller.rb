@@ -18,7 +18,7 @@ class ConfessionsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @confession }
+      format.json { render json: @confession.to_json(:include => :comments) }
     end
   end
 

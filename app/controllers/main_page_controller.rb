@@ -1,7 +1,7 @@
 class MainPageController < ApplicationController
 
   def index
-    @comments = Comment.all
+    @confessions = Confession.all
   end
 
 end
