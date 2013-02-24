@@ -1,0 +1,9 @@
+.row
+  - @confessions.each do |confession|
+    .span6.conf
+      .span4
+        = confession.txt
+      = link_to 'Show', confession
+      = link_to 'Edit', edit_confession_path(confession)
+      = link_to 'Destroy', confession, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
