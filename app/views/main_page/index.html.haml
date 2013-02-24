@@ -4,5 +4,6 @@
       .wrapper{:data => {:id => "#{c.id.to_s}"}}
         =c.id.to_s
       .confession{:data => {:id => "#{c.id.to_s}"}}= c.txt
+    = will_paginate @confessions
 
   #mainDetailView.span8
