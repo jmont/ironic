@@ -26,7 +26,7 @@ $ ->
   newConfessionTemplate = '<div id="newConfessionForm">
                        <br>Post Your Tufts Confession... </br></br>
                       <textarea id="newConfessionTxtArea" /></div>
-                      <div id="confessBtn" class="btn btn-success">Post</div>
+                      <div id="confessBtn" class="btn btn-custom">Post</div>
                     '
 
   postedComment = (c) ->

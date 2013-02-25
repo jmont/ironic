@@ -7,7 +7,7 @@
         = c.txt 
         .numcomments
           = c.comments.count
-          Comments
+          = comment_count_text(c.comments.count)
     = will_paginate @confessions
 
   #mainDetailView.span8
