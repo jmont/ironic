@@ -3,7 +3,11 @@
     - for c in @confessions
       .wrapper{:data => {:id => "#{c.id.to_s}"}}
         =c.id.to_s
-      .confession{:data => {:id => "#{c.id.to_s}"}}= c.txt
+      .confession{:data => {:id => "#{c.id.to_s}"}}
+        = c.txt 
+        .numcomments
+          = c.comments.count
+          Comments
     = will_paginate @confessions
 
   #mainDetailView.span8
