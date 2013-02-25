@@ -19,7 +19,7 @@ $ ->
   detailTemplate = '<div id="confessionTxtDetail">{{txt}}</div>
                     <div id="confCommentForm">
                       <textarea id="newCommentTxtArea" />
-                      <div id="commentBtn" class="btn btn-success">Comment</div>
+                      <div id="commentBtn" class="btn btn-custom">Comment</div>
                     </div>
                     <div id="confComments"></div>'
 
