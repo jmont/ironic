@@ -1,4 +1,5 @@
 Ironic::Application.routes.draw do
+
   root :controller => 'main_page', :action => 'index'
   
   resources :confessions do
@@ -6,6 +7,7 @@ Ironic::Application.routes.draw do
   end
   
   post "/sms/" => "sms#create"
+  devise_for :account
 
 
   # The priority is based upon order of creation:

@@ -18,7 +18,6 @@ $ ->
   isBlank = (str) ->
      (!str || /^\s*$/.test(str))
 
-
   detailTemplate = '<div id="confessionTxtDetail">{{txt}}</div>
                     <div id="confCommentForm">
                       <textarea id="newCommentTxtArea" />

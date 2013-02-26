@@ -13,7 +13,10 @@
             - for c in @confession.comments
                 .comment
                     = c.txt
-                    .created_at= c.created_at
+                    .created_at= c.created_at.strftime("%a %b %d at %l:%M %P") 
+                    =if account_signed_in?
+                         
+                        =button_to 'Destroy', confession_comment_path(@confession, c), :method => :delete
                     
         = link_to 'Return Home', root_path
     .span2
