@@ -61,7 +61,6 @@ GEM
       railties (>= 3.1, < 4.1)
     high_voltage (1.2.2)
     hike (1.2.1)
-    hodel_3000_compliant_logger (0.1.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -80,9 +79,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.6.1)
-    oink (0.10.1)
-      activerecord
-      hodel_3000_compliant_logger
+    newrelic_rpm (3.5.7.59)
     orm_adapter (0.4.0)
     pg (0.14.1)
     polyglot (0.3.3)
@@ -155,7 +152,7 @@ DEPENDENCIES
   high_voltage
   jquery-rails
   less-rails
-  oink
+  newrelic_rpm
   ps
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
