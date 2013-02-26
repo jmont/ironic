@@ -60,5 +60,8 @@ module Ironic
     config.assets.version = '1.0'
     config.time_zone = 'Eastern Time (US & Canada)'
     config.active_record.default_timezone = :local
+
+
+    config.assets.initialize_on_precompile = false
   end
 end
