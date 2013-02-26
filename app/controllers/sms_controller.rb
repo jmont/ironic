@@ -5,5 +5,6 @@ class SmsController < ApplicationController
   	  c = Confession.new
   	  c.txt = params[:Body]
   	  c.save
+  	end
   end
 end
