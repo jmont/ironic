@@ -53,7 +53,7 @@ $ ->
     $('#commentBtn').click submitComment
     $('#confessionTxtDetail').html(confession.txt)
     for c in confession.comments
-      $('#confComments').append(c.id + '<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
+      $('#confComments').append('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
 
   render = ->
     $('#mainDetailView').empty()
@@ -65,14 +65,10 @@ $ ->
         contentType: "application/json"
         dataType: "json",
         success: gotConfession})
-        
-  makeFlag = ->
-  	
 
   init = ->
     $('.confession').click getConfessionDetails
     renderTags('.confession')
-    $('.flag').click makeFlag
 
   init()
   getConfessionDetails()
