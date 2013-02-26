@@ -9,7 +9,7 @@ $ ->
       link = '<a href="confessions/'  +  tag.match(/\d+/g)[0] + '">' + tag + '</a>'
       txt = txt.replace(tag, link)
     txt
-
+    
   renderTags = (className) ->
     $.each($(className), (i, v) ->
       txt =  $(this).html()
@@ -31,7 +31,8 @@ $ ->
 
   postedComment = (c) ->
     $('#newCommentTxtArea').val('')
-    $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
+    t = c.created_at.strftime("%H:%M %P, %d %b. %Y")
+    $('#confComments').append('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
 
   didntPostComment = (e) -> alert 'Couln\'t sumbit confession!'
 
@@ -52,7 +53,7 @@ $ ->
     $('#commentBtn').click submitComment
     $('#confessionTxtDetail').html(confession.txt)
     for c in confession.comments
-      $('#confComments').prepend('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
+      $('#confComments').append(c.id + '<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
 
   render = ->
     $('#mainDetailView').empty()
@@ -64,10 +65,14 @@ $ ->
         contentType: "application/json"
         dataType: "json",
         success: gotConfession})
+        
+  makeFlag = ->
+  	
 
   init = ->
     $('.confession').click getConfessionDetails
     renderTags('.confession')
+    $('.flag').click makeFlag
 
   init()
   getConfessionDetails()
