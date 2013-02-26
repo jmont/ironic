@@ -5,8 +5,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    =if account_signed_in? 
-      =link_to('Logout', destroy_account_session_path, :method => :delete)
+
     %h1#title= link_to 'Tufts Confessions', root_path
     .container
       .row.row-margin
