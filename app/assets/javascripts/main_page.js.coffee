@@ -14,6 +14,9 @@ $ ->
     $.each($(className), (i, v) ->
       txt =  $(this).html()
       $(this).html(replaceTextForTag(txt)))
+  
+  isBlank = (str) ->
+     (!str || /^\s*$/.test(str))
 
 
   detailTemplate = '<div id="confessionTxtDetail">{{txt}}</div>
@@ -31,21 +34,21 @@ $ ->
 
   postedComment = (c) ->
     $('#newCommentTxtArea').val('')
-    t = c.created_at.strftime("%H:%M %P, %d %b. %Y")
     $('#confComments').append('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
 
   didntPostComment = (e) -> alert 'Couln\'t sumbit confession!'
 
   submitComment = ->
     obj = { "comment": {"txt": $('#newCommentTxtArea').val()}}
-    $.ajax({
-        type: "POST",
-        data: JSON.stringify(obj, null, 2),
-        url: ('/confessions/' + $('.confession').data('id') + '/comments'),
-        contentType: "application/json"
-        dataType: "json",
-        success: postedComment,
-        error: didntPostComment })
+    if !isBlank(obj["comment"]["txt"])
+      $.ajax({
+          type: "POST",
+          data: JSON.stringify(obj, null, 2),
+          url: ('/confessions/' + $('.confession').data('id') + '/comments'),
+          contentType: "application/json"
+          dataType: "json",
+          success: postedComment,
+          error: didntPostComment })
 
   gotConfession = (confession) ->
     $('#mainDetailView').empty()
