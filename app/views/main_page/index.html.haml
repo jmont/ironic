@@ -4,10 +4,12 @@
       .wrapper{:data => {:id => "#{c.id.to_s}"}}
         =c.id.to_s
       .confession{:data => {:id => "#{c.id.to_s}"}}
-        = c.txt 
+        .conftext= c.txt 
         .numcomments
           = c.comments.count
           = comment_count_text(c.comments.count)
+        .timestamp= c.created_at.strftime("%l:%M %P, %d %b. %Y") 
+        .block
     = will_paginate @confessions
 
   #mainDetailView.span8
