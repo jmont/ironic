@@ -8,7 +8,7 @@
         .numcomments
           = c.comments.count
           = comment_count_text(c.comments.count)
-        .timestamp= c.created_at.strftime("%l:%M %P, %d %b. %Y") 
+        .timestamp= c.created_at.strftime("%a %b %d at %l:%M %P") 
         .block
     = will_paginate @confessions
 
