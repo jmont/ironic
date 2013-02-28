@@ -19,5 +19,4 @@
         .span2
           -if account_signed_in?     
             = button_to 'Sign Out', destroy_account_session_path, :method => :delete
-
       = yield
