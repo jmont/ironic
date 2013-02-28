@@ -3,9 +3,9 @@ module ConfessionsHelper
     name = 'confession' + id.to_s()
     if !cookies[:name].present? or cookies[:name] == "0"
       cookies[:name] = "0"
-      "Flag" + cookies[:name].to_s() + name
+      return "Flag" + cookies[:name].to_s() + name
     else
-      "Unflag" + cookies[:name] + name
+      return "Unflag" + cookies[:name] + name
     end
   end
 end
