@@ -9,7 +9,8 @@
           = c.comments.count
           = comment_count_text(c.comments.count)
         .timestamp= c.created_at.strftime("%a %b %d at %l:%M %P") 
-          
+        =if account_signed_in? 
+          =button_to 'Destroy', c, :method => :delete, :id => "{#c.id.to_s}"          
         .block
     = will_paginate @confessions
 
