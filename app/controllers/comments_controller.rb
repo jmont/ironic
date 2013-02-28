@@ -81,4 +81,22 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def set_cookie
+    name = 'comment' + params[:id]
+    @comment = Comment.find(params[:id])
+  	if !cookies[name].present? or cookies[name] == "0"
+  	  if @comment.flags.nil?
+  	    @comment.flags = 1
+  	  else 
+  	    @comment.flags += 1
+  	  end
+  	  cookies[name] = "1"
+  	else
+  	  @confession.flags -= 1 
+  	  cookies[name] = "0"
+    end
+    @comment.save
+    redirect_to(:root)
+  end
 end

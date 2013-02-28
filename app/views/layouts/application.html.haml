@@ -7,8 +7,6 @@
   %body
      
     %h1#title= link_to 'Tufts Confessions', root_path
-    -if account_signed_in?     
-      = button_to 'Sign Out', destroy_account_session_path, :method => :delete
     .container
       .row.row-margin
         .span2
@@ -19,4 +17,6 @@
           .span2 Text +1 617-229-6779
           .span1
         .span2
+      -if account_signed_in?     
+        = button_to 'Sign Out', destroy_account_session_path, :method => :delete
       = yield

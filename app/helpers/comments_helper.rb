@@ -8,5 +8,15 @@ module CommentsHelper
       "Comments"
     end
   end
+  
+  def view_comment_cookie(id)
+    name = 'comment' + id.to_s()
+    if !cookies[name].present? or cookies[name] == "0"
+      cookies[name] = "0"
+      return "Flag"
+    else
+      return "Unflag"
+    end
+  end
 
 end
