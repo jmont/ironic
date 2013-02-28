@@ -43,17 +43,20 @@ $ ->
       $.ajax({
           type: "POST",
           data: JSON.stringify(obj, null, 2),
-          url: ('/confessions/' + $('.confession').data('id') + '/comments'),
+          url: ('/confessions/' + $('#confessionTxtDetail').data('id') + '/comments'),
           contentType: "application/json"
           dataType: "json",
           success: postedComment,
           error: didntPostComment })
 
   gotConfession = (confession) ->
+    
     $('#mainDetailView').empty()
     $('#mainDetailView').append(Mustache.render(detailTemplate, confession))
-    $('#commentBtn').click submitComment
+    $('#commentBtn').click submitComment 
     $('#confessionTxtDetail').html(confession.txt)
+    $('#confessionTxtDetail').data("id",confession.id)
+    console.log("my object: %o", confession)
     for c in confession.comments
       $('#confComments').append('<div class="comment">' + replaceTextForTag(c.txt) + '<div class="created_at">'+ c.created_at + '</div></div>')
 
