@@ -1,11 +1,11 @@
 module ConfessionsHelper
   def view_cookie(id)
     name = 'confession' + id.to_s()
-    if !cookies[:name].present? or cookies[:name] == "0"
-      cookies[:name] = "0"
-      return "Flag" + cookies[:name].to_s() + name
+    if !cookies[name].present? or cookies[name] == "0"
+      cookies[name] = "0"
+      return "Flag"
     else
-      return "Unflag" + cookies[:name] + name
+      return "Unflag"
     end
   end
 end

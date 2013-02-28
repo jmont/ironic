@@ -87,16 +87,16 @@ class ConfessionsController < ApplicationController
   def set_cookie
     name = 'confession' + params[:confession_id]
     @confession = Confession.find(params[:confession_id])
-  	if !cookies[:name].present? or cookies[:name] == "0"
+  	if !cookies[name].present? or cookies[name] == "0"
   	  if @confession.flags.nil?
   	    @confession.flags = 1
   	  else 
   	    @confession.flags += 1
   	  end
-  	  cookies[:name] = "1"
+  	  cookies[name] = "1"
   	else
   	  @confession.flags -= 1 
-  	  cookies[:name] = "0"
+  	  cookies[name] = "0"
     end
     @confession.save
     redirect_to(:root)
