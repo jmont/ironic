@@ -1,9 +1,7 @@
 class CreateConfessions < ActiveRecord::Migration
   def change
-    create_table :confessions do |t|
-      t.text :txt
-
-      t.timestamps
+    change_table :confessions do |t|
+      t.integer :flags
     end
   end
 end

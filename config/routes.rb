@@ -6,7 +6,12 @@ Ironic::Application.routes.draw do
     resources :comments
   end
   
+  resources :confessions do
+    put 'set_cookie'
+  end
+  
   post "/sms/" => "sms#create"
+  #put "/confessions/:id/set_cookie" => "confessions#set_cookie"
   devise_for :account
 
 
