@@ -4,7 +4,7 @@
         %p#notice= notice
         
         .confession{:data => {:id => "#{@confession.id.to_s}"}}= @confession.txt
-        =if account_signed_in?
+        -if account_signed_in?
             =button_to "Destroy", :method => :delete, :id => "#{@confession.id.to_s}"
         #confCommentForm
             %textarea#newCommentTxtArea
@@ -15,7 +15,7 @@
                 .comment
                     = c.txt
                     .created_at= c.created_at.strftime("%a %b %d at %l:%M %P") 
-                    =if account_signed_in?     
+                    =-f account_signed_in?     
                         =button_to 'Destroy', confession_comment_path(@confession, c), :method => :delete
         = link_to 'Return Home', root_path
-    .span2
+    .span21

@@ -1,10 +1,10 @@
 .row
   #scrollView.span3.conf.offset1
     - for c in @confessions
-      =if show_comment(c)
+      -if show_comment(c)
         .wrapper{:data => {:id => "#{c.id.to_s}"}}
           =c.id.to_s
-        =link_to view_cookie(c.id), confession_set_cookie_path(c), :id => "#{c.id.to_s}", :method => :put
+        = link_to view_cookie(c.id), confession_set_cookie_path(c), :id => "#{c.id.to_s}", :method => :put
         .confession{:data => {:id => "#{c.id.to_s}"}}
           .conftext= c.txt 
           .numcomments
