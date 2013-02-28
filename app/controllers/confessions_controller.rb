@@ -13,12 +13,14 @@ class ConfessionsController < ApplicationController
   # GET /confessions/1
   # GET /confessions/1.json
   def show
-    @confession = Confession.find(params[:id])
-    @comments = @confession.comments
+    if params[:id] != 'undefined'
+      @confession = Confession.find(params[:id])
+      @comments = @confession.comments
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @confession.to_json(:include => :comments) }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @confession.to_json(:include => :comments) }
+      end
     end
   end
 
