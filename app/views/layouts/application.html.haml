@@ -17,6 +17,7 @@
           .span2 Text +1 617-229-6779
           .span1
         .span2
-      -if account_signed_in?     
-        = button_to 'Sign Out', destroy_account_session_path, :method => :delete
+          -if account_signed_in?     
+            = button_to 'Sign Out', destroy_account_session_path, :method => :delete
+
       = yield
