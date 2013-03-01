@@ -5,7 +5,7 @@
         %span.wrapper{:data => {:id => "#{c.id.to_s}"}}
           = link_to c.id.to_s, confession_path(c)
         %span.flag
-          = link_to view_cookie(c.id), confession_set_cookie_path(c), :id => "#{c.id.to_s}", :method => :put
+          = link_to view_cookie(c.id), confession_set_cookie_path(c), :method => :put
         .confession{:data => {:id => "#{c.id.to_s}"}}
           .conftext= c.txt 
           .numcomments
