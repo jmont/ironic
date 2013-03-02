@@ -16,7 +16,7 @@ $ ->
       $(this).html(replaceTextForTag(txt)))
   
   isBlank = (str) ->
-     (!str || /^\s*$/.test(str))
+     $.trim(str) == ''
 
   detailTemplate = '<div id="confessionTxtDetail">{{txt}}</div>
                     <div id="confCommentForm">

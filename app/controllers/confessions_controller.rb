@@ -28,10 +28,12 @@ class ConfessionsController < ApplicationController
   # GET /confessions/new.json
   def new
     @confession = Confession.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @confession }
+ 
+    if !(@confession.txt.blank?)
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @confession }
+      end
     end
   end
 
@@ -46,7 +48,7 @@ class ConfessionsController < ApplicationController
     @confession = Confession.new(params[:confession])
 
     respond_to do |format|
-      if @confession.save
+      if @confession.save and !(@confession.txt.blank?)
         format.html { redirect_to @confession, notice: 'Confession was successfully created.' }
         format.json { render json: @confession, status: :created, location: @confession }
       else
